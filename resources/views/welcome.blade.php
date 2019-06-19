@@ -22,7 +22,7 @@
 @section('body')
     <h1>Realisatie:</h1>
     <div class="card mb-3">
-        <img src="/images/realisatie.png" class="card-img-top">
+        <img src="images/realisatie.png" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">Overzicht per blok over jaar 1</h5>
             <p class="card-text">Een deel van onze realisatie is het maken van een overzicht zoals hierboven.
