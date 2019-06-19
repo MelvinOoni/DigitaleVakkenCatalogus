@@ -14,7 +14,12 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        // $coursesTerms = $courses->terms;
+
+        // dd($courses);
+
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -24,7 +29,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('courses.create');
     }
 
     /**
@@ -35,7 +40,16 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course = request()->validate([
+            'title' => 'required', 
+            'start_week' => 'required',
+            'end_week' => 'required',
+            'term_id' => 'nullable'
+        ]);
+
+        Course::create($course);
+
+        return redirect('/courses');
     }
 
     /**
@@ -46,7 +60,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return view('/courses/show', compact('course'));
     }
 
     /**
@@ -55,9 +69,11 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit($id)
     {
-        //
+        $course = Course::find($id);
+
+        return view('courses.edit', compact('course'));
     }
 
     /**
@@ -78,8 +94,11 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+        $course->delete();
+
+        return redirect('/courses');
     }
 }
