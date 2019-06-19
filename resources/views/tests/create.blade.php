@@ -14,7 +14,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6 text-left mt-2">
-                    <h4>Voeg een nieuwe toets toe</h4>
+                    <h4>Toevoegen</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
                     <a class="btn btn-primary" href={{ url('/tests') }}>Ga terug</a>
@@ -29,14 +29,14 @@
                 @CSRF
 
                 <div class="form-group">
-                    <label for="test_type_id">Type toets<span class="text-danger">*</span></label>
+                    <label for="type">Type toets<span class="text-danger">*</span></label>
                     <select
-                        class="form-control" id="test_type_id"
-                        name='test_type_id' required>
+                        class="form-control" id="type"
+                        name='type' required>
                         <option value="" disabled selected hidden>Open dit menu om een type toets te kiezen</option>
-                        @foreach ($testTypes as $row)
-                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                        @endforeach
+                        <option value="casus">Casus</option>
+                        <option value="mondeling">Mondeling</option>
+                        <option value="theorie">Theorie</option>
                     </select>
                 </div>
 
