@@ -15,7 +15,9 @@ class TermController extends Controller
      */
     public function index()
     {
-        return view('terms.index');
+        $terms = Term::all();
+
+        return view('terms.index', compact('terms'));
     }
 
     /**
@@ -36,7 +38,17 @@ class TermController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $term = request()->validate([
+            'image' => 'nullable',
+            'title' => 'required',
+            'number' => 'required',
+            'description' => 'required',
+            'semester' => 'required'
+        ]);
+
+        Term::create($term);
+
+        return redirect('/terms');
     }
 
     /**
@@ -47,7 +59,7 @@ class TermController extends Controller
      */
     public function show(Term $term)
     {
-        return view('terms.show', compact('term'));
+        return view('/terms/show', compact('term'));
     }
 
     /**
@@ -56,9 +68,11 @@ class TermController extends Controller
      * @param  \App\Term  $term
      * @return \Illuminate\Http\Response
      */
-    public function edit(Term $term)
+    public function edit($id)
     {
-        return view('terms.edit', compact('term'));        
+        $term = Term::find($id);
+
+        return view('terms.edit', compact('term'));
     }
 
     /**
@@ -68,9 +82,19 @@ class TermController extends Controller
      * @param  \App\Term  $term
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Term $term)
+    public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+            'image' => 'nullable',
+            'title' => 'required',
+            'number' => 'required',
+            'description' => 'required',
+            'semester' => 'required'
+        ]);
+        $term = Term::findOrFail($id);
+        $term->update(request()->all());
+
+        return redirect(route('terms.index'));
     }
 
     /**
@@ -79,8 +103,11 @@ class TermController extends Controller
      * @param  \App\Term  $term
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Term $term)
+    public function destroy($id)
     {
-        //
+        $term = Term::find($id);
+        $term->delete();
+
+        return redirect('/terms');
     }
 }
