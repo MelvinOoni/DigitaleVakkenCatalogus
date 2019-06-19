@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/blokken', 'TermController')->name('blokken');
+Route::resource('/blokken', 'TermController');
 
-Route::resource('/vakken', 'CourseController')->name('vakken');
+Route::resource('/vakken', 'CourseController');
 
-Route::resource('/toetsen', 'TestController')->name('toetsen');
+Route::resource('/toetsen', 'TestController');
 
-Route::resource('/projectvoorbeelden', 'ProductController')->name('projectvoorbeelden');
+Route::resource('/projectvoorbeelden', 'ProductController');
 
 
