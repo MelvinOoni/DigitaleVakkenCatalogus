@@ -10,5 +10,13 @@ class Test extends Model
     protected $table = 'tests';
     protected $guarded = ['id'];
 
-    public $timestamps = false;
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function testType()
+    {
+        return $this->belongsTo(TestType::class);
+    }
 }
