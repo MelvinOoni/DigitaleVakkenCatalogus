@@ -1,8 +1,8 @@
 @extends('coreui::master')
 @section('breadcrumb')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url('/') }}" }}>Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('/courses') }}" }}>Vakken</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('/courses') }}">Vakken</a></li>
         <li class="breadcrumb-item">{{$course->title}}</li>
     </ol>
 @stop
@@ -20,7 +20,8 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="POST" action={{ url('/courses') }}>
+            <form method="POST" action="{{ url('/courses', $course->id) }}">
+                @METHOD('patch')
                 @CSRF
                 {{-- Input field --}}
                 <div class="form-group">
