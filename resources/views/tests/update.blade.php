@@ -1,1 +1,0 @@
-@extends('coreui::master')
