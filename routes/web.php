@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/blokken', 'TermController')->name('blokken');
+
+Route::resource('/vakken', 'CourseController')->name('vakken');
+
+Route::resource('/toetsen', 'TestController')->name('toetsen');
+
+Route::resource('/projectvoorbeelden', 'ProductController')->name('projectvoorbeelden');
+
+
