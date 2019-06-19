@@ -15,7 +15,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6 text-left mt-2">
-                    <h4>Overview of terms</h4>
+                    <h4>Overzicht van blokken</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
                     <a class="btn btn-success" href={{ url('/terms/create') }}><i class="fa fa-plus"></i> New term</a>
@@ -28,9 +28,9 @@
                 <thead>
                 {{-- Head of table --}}
                 <tr>
-                    <th scope="col">Park Name</th>
+                    <th scope="col">Naam blok</th>
                     <th scope="col"></th>
-                    <th scope="col">Actions</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
