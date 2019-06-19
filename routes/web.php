@@ -21,6 +21,6 @@ Route::resource('/vakken', 'CourseController');
 
 Route::resource('/toetsen', 'TestController');
 
-Route::resource('/projectvoorbeelden', 'ProductController');
+Route::resource('/products', 'ProductController');
 
 
