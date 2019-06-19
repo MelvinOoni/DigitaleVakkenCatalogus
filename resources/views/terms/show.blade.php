@@ -26,7 +26,7 @@
            <strong>lorum:</strong>...<br>
            <strong>impsum:</strong>...<br>
 
-           <a class="btn btn-primary btn-sm" href="{{ url('...') }}">Wijzig</a>
+           <a class="btn btn-primary btn-sm" href="{{ url('/terms') }}">Wijzig</a>
        </div>
    </div>
 

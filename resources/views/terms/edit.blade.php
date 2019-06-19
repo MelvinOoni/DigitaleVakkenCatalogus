@@ -14,7 +14,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6 text-left mt-2">
-                    <h4>Edit your ...</h4>
+                    <h4>Wijzig blok</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
                     <a class="btn btn-primary" href={{ url('/terms') }}>Go back</a>
@@ -28,7 +28,7 @@
                 @CSRF
                 {{-- Input field --}}
                 <div class="form-group">
-                    <label for="...">...<span class="text-danger">*</span></label>
+                    <label for=""><span class="text-danger">*</span></label>
                     <input type="..." class="form-control" id="..." name='...'
                            placeholder="..." required value="...">
                     <div class="valid-feedback">

@@ -15,7 +15,9 @@ class TermController extends Controller
      */
     public function index()
     {
-        return view('terms.index');
+        $terms = Term::all();
+
+        return view('terms.index', compact('terms'));
     }
 
     /**
@@ -34,9 +36,19 @@ class TermController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Term $term)
     {
-        //
+        $attribute = request()->validate([
+            'title' => 'required|string',
+            'image' => 'nullable|url',
+            'number' => 'required|numeric',
+            'description' => 'required',
+            'semester' => 'required|numeric'
+        ]);
+
+        Term::create($attribute);
+
+        return redirect(view('terms.index', compact('term')));
     }
 
     /**
@@ -81,6 +93,8 @@ class TermController extends Controller
      */
     public function destroy(Term $term)
     {
-        //
+        $term->delete();
+
+        return redirect(view('terms.index', compact('term')));
     }
 }

@@ -29,22 +29,27 @@
                 {{-- Head of table --}}
                 <tr>
                     <th scope="col">Naam blok</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col">Afbeelding blok</th>
+                    <th scope="col">Nummer blok</th>
+                    <th scope="col">Beschrijving blok</th>
+                    <th scope="col">Semester nummer</th>
                 </tr>
                 </thead>
                 <tbody>
                 {{-- Content of Table --}}
                 @foreach ($terms as $term)
                     <tr>
-                        <td>{{ $term->name}}</td>
+                        <td>{{ $term->title }}</td>
+                        <td>{{ $term->image }}</td>
+                        <td>{{ $term->number }}</td>
+                        <td>{{ $term->description }}</td>
+                        <td>{{ $term->semester }}</td>
                         <td><a class="btn btn-info btn-sm text-white"
                             href={{ url('/terms/show' . $term->id) }}>Details</a></td>
                         <td><a class="btn btn-warning btn-sm text-white"
                             href="{{ url('/terms/edit' . $term->id) }}">Update</a></td>
                         <td>
-                            <form method="POST" action="{{ url('/terms/destroy'  . $term->id) }}">
+                            <form method="POST" action="#">
                                 @method('DELETE')
                                 @CSRF
                                 <button class="btn btn-danger btn-sm"
