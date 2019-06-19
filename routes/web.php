@@ -19,7 +19,7 @@ Route::resource('/blokken', 'TermController');
 
 Route::resource('/vakken', 'CourseController');
 
-Route::resource('/toetsen', 'TestController');
+Route::resource('/tests', 'TestController');
 
 Route::resource('/projectvoorbeelden', 'ProductController');
 
