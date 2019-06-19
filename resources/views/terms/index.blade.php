@@ -1,24 +1,20 @@
 @extends('coreui::master')
-
-@section('title', 'Blokken')
-
 @section('breadcrumb')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url('/') }}" }}>Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('adminpanel/home') }}" }}>Home</a></li>
         <li class="breadcrumb-item">Blokken</li>
     </ol>
 @stop
-
 @section('body')
     <div class="card">
         {{-- Title of card --}}
         <div class="card-header">
             <div class="row">
                 <div class="col-6 text-left mt-2">
-                    <h4>Overview of terms</h4>
+                    <h4>Overzicht blokken</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
-                    <a class="btn btn-success" href={{ url('/terms/create') }}><i class="fa fa-plus"></i> New term</a>
+                    <a class="btn btn-success" href={{ url('/terms/create') }}>Nieuw blok toeveogen</a>
                 </div>
             </div>
         </div>
@@ -28,31 +24,37 @@
                 <thead>
                 {{-- Head of table --}}
                 <tr>
-                    <th scope="col">Park Name</th>
+                    <th scope="col">Titel</th>
+                    <th scope="col">Bloknummer</th>
+                    <th scope="col">Beschrijving</th>
+                    <th scope="col">Semester</th>
                     <th scope="col"></th>
-                    <th scope="col">Actions</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
                 {{-- Content of Table --}}
-                <tr>
-                    <td>Course 1</td>
-                    <td><a class="btn btn-info btn-sm text-white"
-                           href={{ url('/terms/show' . '$row->id') }}>Details</a></td>
-                    <td><a class="btn btn-warning btn-sm text-white"
-                           href="{{ url('/terms/edit' . '$row->id') }}">Update</a></td>
-                    <td>
-                        <form method="POST" action="{{ url('/terms/destroy'  . '$row->id') }}">
-                            @method('DELETE')
-                            @CSRF
-                            <button class="btn btn-danger btn-sm"
-                                    onclick="if (!confirm('Weet je zeker dat je dit blok wilt verwijderen?')) { return false }">
-                                Delete
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+                @foreach ($terms as $term)
+                    <tr>
+                        <td>{{$term->title}}</td>
+                        <td>{{$term->number}}</td>
+                        <td>{{$term->description}}</td>
+                        <td>{{$term->semester}}</td>
+                        <td><a href='terms/{{$term->id}}' class="btn btn-info btn-sm text-white">Details</a></td>
+                        <td><a class="btn btn-warning btn-sm text-white"
+                               href='/terms/{{$term->id}}/edit'>Bewerken</a></td>
+                        <td>
+                            <form method="POST" action="/terms/{{$term->id}}">
+                                @method('DELETE')
+                                @CSRF
+                                <button class="btn btn-danger btn-sm" onclick="if (!confirm('Weet je zeker dat je dit vak wilt verwijderen?')) { return false }">
+                                    Verwijderen
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

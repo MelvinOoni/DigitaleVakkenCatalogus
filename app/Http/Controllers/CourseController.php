@@ -83,9 +83,18 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+            'title' => 'required',
+            'start_week' => 'required',
+            'end_week' => 'required',
+            'term_id' => 'nullable'
+        ]);
+        $course = Course::findOrFail($id);
+        $course->update(request()->all());
+
+        return redirect(route('courses.index'));
     }
 
     /**
