@@ -36,7 +36,6 @@ class CreateCoursesTable extends Migration
                 ->references('id')->on('terms')
                 ->onDelete('no action')
                 ->onUpdate('no action');
-            $table->timestamps();
         });
     }
 
