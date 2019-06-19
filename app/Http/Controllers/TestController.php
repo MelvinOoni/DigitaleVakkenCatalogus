@@ -18,8 +18,7 @@ class TestController extends Controller
     {
         $courses = Course::all();
         $tests = Test::all();
-        $testTypes = TestType::all();
-        return view('tests/index', compact('courses', 'tests', 'testTypes'));
+        return view('tests/index', compact('courses', 'tests'));
     }
 
     /**
@@ -31,8 +30,7 @@ class TestController extends Controller
     {
         $courses = Course::all();
         $tests = Test::all();
-        $testTypes = TestType::all();
-        return view('tests/create', compact('courses', 'tests', 'testTypes'));
+        return view('tests/create', compact('courses', 'tests'));
     }
 
     /**
@@ -45,7 +43,7 @@ class TestController extends Controller
     {
         $tests = new Test();
 
-        $tests->test_type_id = request('test_type_id');
+        $tests->type = request('type');
         $tests->attempt = request('attempt');
         $tests->week = request('week');
         $tests->course_id = request('course_id');
@@ -99,8 +97,6 @@ class TestController extends Controller
     public function destroy($id)
     {
         Test::findOrFail($id)->delete();
-        TestType::findOrFail($id)->delete();
-        Course::findOrFail($id)->delete();
 
         return redirect('/tests');
     }
