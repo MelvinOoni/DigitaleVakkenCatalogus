@@ -24,10 +24,11 @@ class CreateTermsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('image', 45)->nullable();
-            $table->string('title', 45)->nullable();
-            $table->integer('number')->nullable();
-            $table->string('description')->nullable();
-            $table->integer('semester')->nullable();
+            $table->string('title', 45);
+            $table->integer('number');
+            $table->string('description');
+            $table->integer('semester');
+            $table->timestamps();
         });
     }
 
