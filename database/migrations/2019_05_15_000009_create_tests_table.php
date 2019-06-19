@@ -33,7 +33,6 @@ class CreateTestsTable extends Migration
 
             $table->index(["test_type_id"], 'fk_tests_test_types_idx');
 
-
             $table->foreign('course_id', 'fk_tests_courses_idx')
                 ->references('id')->on('courses')
                 ->onDelete('no action')
