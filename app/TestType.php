@@ -9,9 +9,4 @@ class TestType extends Model
     // Test types
     protected $table = 'test_types';
     protected $guarded = ['id'];
-
-    public function test()
-    {
-        $this->belongsTo('\App\Test');
-    }
 }
