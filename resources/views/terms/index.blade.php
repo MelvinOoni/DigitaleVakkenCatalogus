@@ -39,15 +39,15 @@
                 <tr>
                     <td>...</td>
                     <td><a class="btn btn-info btn-sm text-white"
-                           href={{ url('...') }}>Details</a></td>
+                           href={{ url('/terms/show' . $row->id) }}>Details</a></td>
                     <td><a class="btn btn-warning btn-sm text-white"
-                           href="{{ url('...') }}">Update</a></td>
+                           href="{{ url('/terms/edit' . $row->id) }}">Update</a></td>
                     <td>
-                        <form method="POST" action="{{ url('...') }}">
+                        <form method="POST" action="{{ url('/terms/destroy'  . $row->id) }}">
                             @method('DELETE')
                             @CSRF
                             <button class="btn btn-danger btn-sm"
-                                    onclick="if (!confirm('Are you sure you want to delete this ...?')) { return false }">
+                                    onclick="if (!confirm('Weet je zeker dat je dit blok wilt verwijderen?')) { return false }">
                                 Delete
                             </button>
                         </form>
