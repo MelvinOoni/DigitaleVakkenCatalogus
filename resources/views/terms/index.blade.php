@@ -36,24 +36,26 @@
                 </thead>
                 <tbody>
                 {{-- Content of Table --}}
-                <tr>
-                    <td>Course 1</td>
-                    <td><a class="btn btn-info btn-sm text-white"
-                           href={{ url('/terms/show' . '$row->id') }}>Details</a></td>
-                    <td><a class="btn btn-warning btn-sm text-white"
-                           href="{{ url('/terms/edit' . '$row->id') }}">Update</a></td>
-                    <td>
-                        <form method="POST" action="{{ url('/terms/destroy'  . '$row->id') }}">
-                            @method('DELETE')
-                            @CSRF
-                            <button class="btn btn-danger btn-sm"
-                                    onclick="if (!confirm('Weet je zeker dat je dit blok wilt verwijderen?')) { return false }">
-                                Delete
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-                </tbody>
+                @foreach ($terms as $term)
+                    <tr>
+                        <td>{{ $term->name}}</td>
+                        <td><a class="btn btn-info btn-sm text-white"
+                            href={{ url('/terms/show' . $term->id) }}>Details</a></td>
+                        <td><a class="btn btn-warning btn-sm text-white"
+                            href="{{ url('/terms/edit' . $term->id) }}">Update</a></td>
+                        <td>
+                            <form method="POST" action="{{ url('/terms/destroy'  . $term->id) }}">
+                                @method('DELETE')
+                                @CSRF
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="if (!confirm('Weet je zeker dat je dit blok wilt verwijderen?')) { return false }">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
             </table>
         </div>
     </div>
