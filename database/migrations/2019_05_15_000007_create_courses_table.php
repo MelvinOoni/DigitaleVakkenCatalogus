@@ -27,6 +27,7 @@ class CreateCoursesTable extends Migration
             $table->integer('end_week')->nullable();
             $table->string('title', 45)->nullable();
             $table->unsignedInteger('term_id')->nullable();
+            $table->timestamps();
 
             $table->index(["term_id"], 'fk_coruses_terms_idx');
 
