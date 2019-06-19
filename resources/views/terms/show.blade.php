@@ -3,7 +3,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('/') }}" }}>Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('/courses') }}" }}>Vakken</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('/terms') }}" }}>Blokken</a></li>
         <li class="breadcrumb-item">{{$term->number}}</li>
     </ol>
 @stop
@@ -23,10 +23,12 @@
         </div>
 
         <div class="card-body text-left">
-            <strong>Bloknummer:</strong> {{ $term->number }}<br>
             <strong>Titel:</strong> {{ $term->title }}<br>
-            <strong>Berschrijving:</strong> {{ $term->description }}<br>
+            <strong>Bloknummer:</strong> {{ $term->number }}<br>
             <strong>Semester:</strong> {{ $term->semester }}<br>
+            <strong>Berschrijving:</strong> {{ $term->description }}<br><br>
+            <img src="{{ $term->image }}" class="">
+
         </div>
     </div>
 

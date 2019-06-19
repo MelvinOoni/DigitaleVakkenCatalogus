@@ -14,7 +14,8 @@
                     <h4>Overzicht vakken</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
-                    <a class="btn btn-success" href={{ url('/courses/create') }}>Nieuw vak toeveogen</a>
+                    <a class="btn btn-success" href={{ url('/courses/create') }}><i class="fa fa-plus"></i> Nieuw vak
+                        toeveogen</a>
                 </div>
             </div>
         </div>
@@ -42,13 +43,14 @@
                         <td>{{$course->end_week}}</td>
                         <td>{{$course->term_id}}</td>
                         <td><a href='courses/{{$course->id}}' class="btn btn-info btn-sm text-white">Details</a></td>
-                           <td><a class="btn btn-warning btn-sm text-white"
-                            href='/courses/{{$course->id}}/edit'>Bewerken</a></td>
+                        <td><a class="btn btn-warning btn-sm text-white"
+                               href='/courses/{{$course->id}}/edit'>Bewerken</a></td>
                         <td>
                             <form method="POST" action="/courses/{{$course->id}}">
                                 @method('DELETE')
                                 @CSRF
-                                <button class="btn btn-danger btn-sm" onclick="if (!confirm('Weet je zeker dat je dit vak wilt verwijderen?')) { return false }">
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="if (!confirm('Weet je zeker dat je dit vak wilt verwijderen?')) { return false }">
                                     Verwijderen
                                 </button>
                             </form>
