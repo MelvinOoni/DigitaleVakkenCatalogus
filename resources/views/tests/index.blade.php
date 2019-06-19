@@ -17,7 +17,8 @@
                     <h4>Overzicht van de toetsen</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
-                    <a class="btn btn-success" href={{ url('tests/create') }}><i class="fa fa-plus"></i> Toets toevoegen</a>
+                    <a class="btn btn-success" href={{ url('tests/create') }}><i class="fa fa-plus"></i> Nieuwe toets
+                        toevoegen</a>
                 </div>
             </div>
         </div>
@@ -42,20 +43,19 @@
                 @foreach($tests as $test)
 
                     <tr>
-                        <td>
-                            {{-- Coursename --}}
-                            {{ $test->course->title }}
+                        {{-- Name of course --}}
+                        <td>{{ $test->course->title }}</td>
 
-                        </td>
+                        {{-- Type of test--}}
+                        <td>{{ $test->type }}</td>
 
-                        <td>
-                            {{-- Test type --}}
-                            {{ $test->testType->name }}
-                        </td>
-
-                        {{-- Attempt and week of test --}}
+                        {{-- Attempt of test --}}
                         <td>{{ $test->attempt }}</td>
+
+                        {{-- Week of test --}}
                         <td>{{ $test->week }}</td>
+
+                        {{-- Buttons for actions --}}
                         <td><a class="btn btn-info btn-sm text-white"
                                href={{ url('tests/') }}>Details</a></td>
                         <td><a class="btn btn-warning btn-sm text-white"

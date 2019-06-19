@@ -14,9 +14,4 @@ class Test extends Model
     {
         return $this->belongsTo(Course::class);
     }
-
-    public function testType()
-    {
-        return $this->belongsTo(TestType::class);
-    }
 }

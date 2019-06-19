@@ -23,10 +23,10 @@ class CreateTermsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('image', 45)->nullable();
+            $table->string('image', 999)->nullable();
             $table->string('title', 45);
             $table->integer('number');
-            $table->string('description');
+            $table->string('description', 999);
             $table->integer('semester');
             $table->timestamps();
         });
