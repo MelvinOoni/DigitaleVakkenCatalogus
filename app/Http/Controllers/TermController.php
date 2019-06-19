@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Term;
 use Illuminate\Http\Request;
+use PHPUnit\Util\Test;
 
 class TermController extends Controller
 {
@@ -14,7 +15,7 @@ class TermController extends Controller
      */
     public function index()
     {
-        //
+        return view('terms.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class TermController extends Controller
      */
     public function create()
     {
-        //
+        return view('terms.create');
     }
 
     /**
@@ -46,7 +47,7 @@ class TermController extends Controller
      */
     public function show(Term $term)
     {
-        //
+        return view('terms.show', compact('term'));
     }
 
     /**
@@ -57,7 +58,7 @@ class TermController extends Controller
      */
     public function edit(Term $term)
     {
-        //
+        return view('terms.edit', compact('term'));        
     }
 
     /**
