@@ -37,13 +37,13 @@
                 <tbody>
                 {{-- Content of Table --}}
                 <tr>
-                    <td>...</td>
+                    <td>Course 1</td>
                     <td><a class="btn btn-info btn-sm text-white"
-                           href={{ url('/terms/show' . $row->id) }}>Details</a></td>
+                           href={{ url('/terms/show' . '$row->id') }}>Details</a></td>
                     <td><a class="btn btn-warning btn-sm text-white"
-                           href="{{ url('/terms/edit' . $row->id) }}">Update</a></td>
+                           href="{{ url('/terms/edit' . '$row->id') }}">Update</a></td>
                     <td>
-                        <form method="POST" action="{{ url('/terms/destroy'  . $row->id) }}">
+                        <form method="POST" action="{{ url('/terms/destroy'  . '$row->id') }}">
                             @method('DELETE')
                             @CSRF
                             <button class="btn btn-danger btn-sm"
