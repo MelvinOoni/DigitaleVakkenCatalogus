@@ -44,7 +44,7 @@ return [
         ],
         [
             'text' => 'Projectvoorbeelden',          // The text to be displayed inside the menu.
-            'url' => '/projectvoorbeelden',     // The URL behind the text. Mutually exclusive with "route" option.
+            'url' => '/products',     // The URL behind the text. Mutually exclusive with "route" option.
             'icon' => 'stream fas',      // Name of FontAwesome icon to display. Note that you have to use the "far", "fas" or "fal" modifier behind the icon.
             'target' => '_self'            // Target attribute of <a> tag.
         ],
