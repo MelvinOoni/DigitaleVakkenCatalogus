@@ -2,8 +2,8 @@
 @section('breadcrumb')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('/home') }}" }}>Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('/products') }}" }}>projectvoorbeeld</a></li>
-        <li class="breadcrumb-item">create</li>
+        <li class="breadcrumb-item"><a href="{{ url('/products') }}" }}>Products</a></li>
+        <li class="breadcrumb-item">Toevoegen</li>
     </ol>
 @stop
 @section('body')
