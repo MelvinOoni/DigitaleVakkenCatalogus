@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/blokken', 'TermController');
+Route::resource('/terms', 'TermController');
 
 Route::resource('/vakken', 'CourseController');
 
