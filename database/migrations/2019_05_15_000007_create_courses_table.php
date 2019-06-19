@@ -23,9 +23,9 @@ class CreateCoursesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('start_week')->nullable();
-            $table->integer('end_week')->nullable();
-            $table->string('title', 45)->nullable();
+            $table->integer('start_week');
+            $table->integer('end_week');
+            $table->string('title', 45);
             $table->unsignedInteger('term_id')->nullable();
 
             $table->index(["term_id"], 'fk_coruses_terms_idx');
@@ -35,6 +35,7 @@ class CreateCoursesTable extends Migration
                 ->references('id')->on('terms')
                 ->onDelete('no action')
                 ->onUpdate('no action');
+            $table->timestamps();
         });
     }
 

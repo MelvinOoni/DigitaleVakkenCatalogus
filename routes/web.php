@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::resource('/blokken', 'TermController');
 
-Route::resource('/vakken', 'CourseController');
+Route::resource('/courses', 'CourseController');
 
 Route::resource('/tests', 'TestController');
 
