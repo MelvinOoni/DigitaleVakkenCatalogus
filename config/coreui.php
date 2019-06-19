@@ -26,7 +26,7 @@ return [
         ],
         [
             'text' => 'Blokken',          // The text to be displayed inside the menu.
-            'url' => '/blokken',     // The URL behind the text. Mutually exclusive with "route" option.
+            'url' => '/terms',     // The URL behind the text. Mutually exclusive with "route" option.
             'icon' => 'tachometer-alt fas',      // Name of FontAwesome icon to display. Note that you have to use the "far", "fas" or "fal" modifier behind the icon.
             'target' => '_self'            // Target attribute of <a> tag.
         ],
