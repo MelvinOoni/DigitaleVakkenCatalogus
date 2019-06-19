@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\TestType;
 use App\Test;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class TestController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        $tests = Test::all();
+        $testTypes = TestType::all();
+        return view('tests/index', compact('courses', 'tests', 'testTypes'));
     }
 
     /**
@@ -24,7 +29,10 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Course::all();
+        $tests = Test::all();
+        $testTypes = TestType::all();
+        return view('tests/create', compact('courses', 'tests', 'testTypes'));
     }
 
     /**
@@ -35,8 +43,16 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $tests = new Test();
+
+        $tests->test_type_id = request('test_type_id');
+        $tests->attempt = request('attempt');
+        $tests->week = request('week');
+        $tests->course_id = request('course_id');
+
+        $tests->save();
+
+        return redirect('/tests');    }
 
     /**
      * Display the specified resource.
@@ -46,7 +62,7 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        return view('tests/show');
     }
 
     /**
@@ -57,7 +73,7 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        //
+        return view('tests/edit');
     }
 
     /**
@@ -76,10 +92,16 @@ class TestController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Test  $test
+     * @param  \App\Course  $course
+
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Test $test)
+    public function destroy($id)
     {
-        //
+        Test::findOrFail($id)->delete();
+        TestType::findOrFail($id)->delete();
+        Course::findOrFail($id)->delete();
+
+        return redirect('/tests');
     }
 }
