@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <label for="term_id">Blok<span class="text-danger"> *</span></label>
                         <input type="text" class="form-control" id="term_id" name='term_id'
-                               placeholder="Blok id" required>
+                               placeholder="Blok id">
                         {{-- <div class="valid-feedback">
                             Ziet er goed uit!
                         </div>
