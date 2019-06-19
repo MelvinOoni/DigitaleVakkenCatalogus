@@ -3,7 +3,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('/home') }}" }}>Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('...') }}" }}>...</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('tests') }}" }}>Toetsen</a></li>
         <li class="breadcrumb-item">Wijzigen</li>
     </ol>
 @stop
