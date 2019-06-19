@@ -22,31 +22,31 @@ return [
             'text' => 'Home',          // The text to be displayed inside the menu.
             'url' => '/home',     // The URL behind the text. Mutually exclusive with "route" option.
             'icon' => 'home fas',      // Name of FontAwesome icon to display. Note that you have to use the "far", "fas" or "fal" modifier behind the icon.
-            'target' => '_blank'            // Target attribute of <a> tag.
+            'target' => '_self'            // Target attribute of <a> tag.
         ],
         [
             'text' => 'Blokken',          // The text to be displayed inside the menu.
             'url' => '/blokken',     // The URL behind the text. Mutually exclusive with "route" option.
             'icon' => 'tachometer-alt fas',      // Name of FontAwesome icon to display. Note that you have to use the "far", "fas" or "fal" modifier behind the icon.
-            'target' => '_blank'            // Target attribute of <a> tag.
+            'target' => '_self'            // Target attribute of <a> tag.
         ],
         [
             'text' => 'Vakken',          // The text to be displayed inside the menu.
             'url' => '/vakken',     // The URL behind the text. Mutually exclusive with "route" option.
             'icon' => 'chalkboard-teacher fas',      // Name of FontAwesome icon to display. Note that you have to use the "far", "fas" or "fal" modifier behind the icon.
-            'target' => '_blank'            // Target attribute of <a> tag.
+            'target' => '_self'            // Target attribute of <a> tag.
         ],
         [
             'text' => 'Toetsen',          // The text to be displayed inside the menu.
             'url' => '/toetsen',     // The URL behind the text. Mutually exclusive with "route" option.
             'icon' => 'pencil-ruler fas',      // Name of FontAwesome icon to display. Note that you have to use the "far", "fas" or "fal" modifier behind the icon.
-            'target' => '_blank'            // Target attribute of <a> tag.
+            'target' => '_self'            // Target attribute of <a> tag.
         ],
         [
             'text' => 'Projectvoorbeelden',          // The text to be displayed inside the menu.
             'url' => '/projectvoorbeelden',     // The URL behind the text. Mutually exclusive with "route" option.
             'icon' => 'stream fas',      // Name of FontAwesome icon to display. Note that you have to use the "far", "fas" or "fal" modifier behind the icon.
-            'target' => '_blank'            // Target attribute of <a> tag.
+            'target' => '_self'            // Target attribute of <a> tag.
         ],
 //        'First section',                    // Section header
 //        [
