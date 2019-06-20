@@ -35,7 +35,7 @@
                     <select
                         class="form-control" id="term_id"
                         name='term_id' required>
-                        <option value="{{ $course->term_id }}" selected hidden>{{ $course->term_id }}</option>
+                        {{--<option value="{{ $course->term_id }}" selected hidden>{{ $terms->term_id }}</option>--}}
                         @foreach ($terms as $row)
                             <option value="{{ $row->id }}">Blok {{ $row->number }}</option>
                         @endforeach
