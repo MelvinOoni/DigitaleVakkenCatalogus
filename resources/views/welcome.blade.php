@@ -40,7 +40,7 @@
                 <li>Inschrijven voor open dagen etc. en ook gelijk afspraken in persoonlijke agenda kunnenn plaatsen</li>
                 <li>Nieuwsberichten pagina over de opleiding (eventuele veranderingen binnen de opleiding)</li>
                 <li>Globale agenda van de opleiding qua activiteiten</li>
-                <li></li>
+                <li>Voorbeelden van projecten van voorgaande eerstejaars bekijken om een indruk te krijgen</li>
             </ul>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
