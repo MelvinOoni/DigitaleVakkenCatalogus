@@ -41,6 +41,7 @@
                 <li>Nieuwsberichten pagina over de opleiding (eventuele veranderingen binnen de opleiding)</li>
                 <li>Globale agenda van de opleiding qua activiteiten</li>
                 <li>Voorbeelden van projecten van voorgaande eerstejaars bekijken om een indruk te krijgen</li>
+                <img src="images/ontwerp.png" class="card-img-top">
             </ul>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
