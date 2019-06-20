@@ -30,6 +30,18 @@
                 Hier is onder andere in te zien: welk vak, welke periode voor welke toets ze hiermee te maken krijgen.
                 In dit overzicht is ook te zien hoe je hiervoor getoetst wordt.
                 Wij willlen hier nog aan toevoegen dat we kunnen zien hoeveel pogingen je hiervoor krijgt en projectvoorbeelden. </p>
+            <br>
+
+            <h5 class="card-title">Ideeën</h5>
+            <ul>
+                <li>Slackbot voor meer informatie over blokken, vakken en toetsen</li>
+                <li>Cruds omzetten naar pdf die je kan delen en downloaden, zodat je een eigen brochure hebt</li>
+                <li>Service robot -> Vragen stellen aan een robot (spraakgestuurd)</li>
+                <li>Inschrijven voor open dagen etc. en ook gelijk afspraken in persoonlijke agenda kunnenn plaatsen</li>
+                <li>Nieuwsberichten pagina over de opleiding (eventuele veranderingen binnen de opleiding)</li>
+                <li>Globale agenda van de opleiding qua activiteiten</li>
+                <li></li>
+            </ul>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
     </div>
