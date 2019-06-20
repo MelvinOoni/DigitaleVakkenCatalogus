@@ -1,7 +1,7 @@
 @extends('coreui::master')
 @section('breadcrumb')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url('adminpanel/home') }}" }}>Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('/') }}" }}>Home</a></li>
         <li class="breadcrumb-item">Vakken</li>
     </ol>
 @stop
@@ -26,11 +26,9 @@
                 {{-- Head of table --}}
                 <tr>
                     <th scope="col">Titel</th>
-                    <th scope="col">Startweek</th>
-                    <th scope="col">Eindweek</th>
                     <th scope="col">Blok</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col">Acties</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -39,19 +37,21 @@
                 @foreach ($courses as $course)
                     <tr>
                         <td>{{$course->title}}</td>
-                        <td>{{$course->start_week}}</td>
-                        <td>{{$course->end_week}}</td>
+
                         <td>{{$course->term_id}}</td>
-                        <td><a href='courses/{{$course->id}}' class="btn btn-info btn-sm text-white">Details</a></td>
+
+                        {{-- Buttons for actions --}}
+                        <td><a class="btn btn-info btn-sm text-white"
+                               href='courses/{{$course->id}}'>Details</a></td>
                         <td><a class="btn btn-warning btn-sm text-white"
-                               href='/courses/{{$course->id}}/edit'>Bewerken</a></td>
+                               href='courses/{{$course->id}}/edit'>Bewerken</a></td>
                         <td>
-                            <form method="POST" action="/courses/{{$course->id}}">
+                            <form method="POST" action="{{ url('courses/' . $course->id) }}">
                                 @method('DELETE')
                                 @CSRF
                                 <button class="btn btn-danger btn-sm"
-                                        onclick="if (!confirm('Weet je zeker dat je dit vak wilt verwijderen?')) { return false }">
-                                    Verwijderen
+                                        onclick="if (!confirm('Weet je zeker dat je dit wilt verwijderen?')) { return false }">
+                                    Delete
                                 </button>
                             </form>
                         </td>

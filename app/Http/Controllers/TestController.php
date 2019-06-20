@@ -55,12 +55,12 @@ class TestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Test  $test
+     * @param $test
      * @return \Illuminate\Http\Response
      */
     public function show(Test $test)
     {
-        return view('tests/show');
+        return view('/tests/show', compact('test'));
     }
 
     /**
@@ -71,7 +71,8 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        return view('tests/edit');
+        $course = Course::all();
+        return view('tests/edit', compact('test', 'course'));
     }
 
     /**
@@ -83,7 +84,14 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        //
+        $test->type = request('type');
+        $test->attempt = request('attempt');
+        $test->week = request('week');
+        $test->course_id = request('course_id');
+
+        $test->save();
+
+        return redirect('/tests');
     }
 
     /**

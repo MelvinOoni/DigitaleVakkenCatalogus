@@ -34,7 +34,7 @@ class CreateTestsTable extends Migration
             $table->foreign('course_id', 'fk_tests_courses_idx')
                 ->references('id')->on('courses')
                 ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onUpdate('cascade');
         });
     }
 

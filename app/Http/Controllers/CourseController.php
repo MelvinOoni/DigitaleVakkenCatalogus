@@ -74,8 +74,9 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = Course::find($id);
+        $terms = Term::all();
 
-        return view('courses.edit', compact('course'));
+        return view('courses.edit', compact('course', 'terms'));
     }
 
     /**
@@ -107,8 +108,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::find($id);
-        $course->delete();
+        Course::findOrFail($id)->delete();
 
         return redirect('/courses');
     }
