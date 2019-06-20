@@ -1,12 +1,15 @@
 @extends('coreui::master')
+
 @section('breadcrumb')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url('adminpanel/home') }}" }}>Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('/') }}" }}>Home</a></li>
         <li class="breadcrumb-item">Blokken</li>
     </ol>
 @stop
+
 @section('body')
     <div class="card">
+
         {{-- Title of card --}}
         <div class="card-header">
             <div class="row">
@@ -14,7 +17,8 @@
                     <h4>Overzicht blokken</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
-                    <a class="btn btn-success" href={{ url('/terms/create') }}>Nieuw blok toeveogen</a>
+                    <a class="btn btn-success" href={{ url('/terms/create') }}><i class="fa fa-plus"></i> Nieuw blok
+                        toeveogen</a>
                 </div>
             </div>
         </div>
@@ -24,12 +28,10 @@
                 <thead>
                 {{-- Head of table --}}
                 <tr>
+                    <th scope="col">Blok</th>
                     <th scope="col">Titel</th>
-                    <th scope="col">Bloknummer</th>
-                    <th scope="col">Beschrijving</th>
-                    <th scope="col">Semester</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col">Acties</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -37,19 +39,18 @@
                 {{-- Content of Table --}}
                 @foreach ($terms as $term)
                     <tr>
-                        <td>{{$term->title}}</td>
                         <td>{{$term->number}}</td>
-                        <td>{{$term->description}}</td>
-                        <td>{{$term->semester}}</td>
+                        <td>{{$term->title}}</td>
                         <td><a href='terms/{{$term->id}}' class="btn btn-info btn-sm text-white">Details</a></td>
                         <td><a class="btn btn-warning btn-sm text-white"
-                               href='/terms/{{$term->id}}/edit'>Bewerken</a></td>
+                               href="{{ url('/terms/' . $term->id . '/edit'   ) }}" >Bewerken</a></td>
                         <td>
-                            <form method="POST" action="/terms/{{$term->id}}">
+                            <form method="POST" action="{{ url('terms/' . $term->id) }}">
                                 @method('DELETE')
                                 @CSRF
-                                <button class="btn btn-danger btn-sm" onclick="if (!confirm('Weet je zeker dat je dit vak wilt verwijderen?')) { return false }">
-                                    Verwijderen
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="if (!confirm('Weet je zeker dat je dit wilt verwijderen?')) { return false }">
+                                    Delete
                                 </button>
                             </form>
                         </td>
