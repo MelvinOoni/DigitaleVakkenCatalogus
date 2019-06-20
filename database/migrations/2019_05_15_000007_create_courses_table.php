@@ -34,8 +34,8 @@ class CreateCoursesTable extends Migration
 
             $table->foreign('term_id', 'fk_courses_terms_idx')
                 ->references('id')->on('terms')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

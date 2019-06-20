@@ -91,14 +91,6 @@ class TermController extends Controller
         $term->description = request('description');
         $term->semester = request('semester');
 
-//        $term = request()->validate([
-//            'image' => 'nullable',
-//            'title' => 'required',
-//            'number' => 'required',
-//            'description' => 'required',
-//            'semester' => 'required'
-//        ]);
-//dd($term);
         $term->save();
 
         return redirect('/terms');

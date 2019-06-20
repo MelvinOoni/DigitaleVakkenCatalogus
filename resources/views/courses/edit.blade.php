@@ -26,26 +26,34 @@
                 {{-- Input field --}}
                 <div class="form-group">
                     <label for="title">Vak<span class="text-danger"> *</span></label>
-                    <input type="text" class="form-control" id="title" name='title' placeholder="Titel" value="{{$course->title}}">
+                    <input type="text" class="form-control" id="title" name='title' placeholder="Titel"
+                           value="{{$course->title}}">
                 </div>
-                <div class="form-group">
-                    <label for="start_week">Startweek<span class="text-danger"> *</span></label>
-                    <input type="number" class="form-control" id="start_week" name='start_week' placeholder="Startweek" value="{{$course->start_week}}">
-                </div>
-                <div class="form-group">
-                    <label for="end_week">Eindweek<span class="text-danger"> *</span></label>
-                    <input type="number" class="form-control" id="end_week" name='end_week' placeholder="Eindweek" required value="{{$course->end_week}}">
-                </div>
+
                 <div class="form-group">
                     <label for="term_id">Blok<span class="text-danger"> *</span></label>
-                    <input type="text" class="form-control" id="term_id" name='term_id' placeholder="Blok id"  value="{{$course->term_id}}">
-                    {{-- <div class="valid-feedback">
-                        Ziet er goed uit!
-                    </div>
-                    <div class="invalid-feedback">
-                        Controleer of de waarde juist is
-                    </div> --}}
+                    <select
+                        class="form-control" id="term_id"
+                        name='term_id' required>
+                        <option value="{{ $course->term_id }}" selected hidden>{{ $course->term_id }}</option>
+                        @foreach ($terms as $row)
+                            <option value="{{ $row->id }}">Blok {{ $row->number }}</option>
+                        @endforeach
+                    </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="start_week">Startweek<span class="text-danger"> *</span></label>
+                    <input type="number" class="form-control" id="start_week" name='start_week' placeholder="Startweek"
+                           value="{{$course->start_week}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="end_week">Eindweek<span class="text-danger"> *</span></label>
+                    <input type="number" class="form-control" id="end_week" name='end_week' placeholder="Eindweek"
+                           required value="{{$course->end_week}}">
+                </div>
+
                 {{-- Submit knop --}}
                 <div class="form-group">
                     <button type="submit" class="form-control btn btn-success">Bevestig wijzigingen</button>
