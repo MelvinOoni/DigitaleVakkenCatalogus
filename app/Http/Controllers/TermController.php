@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Term;
 use Illuminate\Http\Request;
 use PHPUnit\Util\Test;
+use function Sodium\compare;
 
 class TermController extends Controller
 {
@@ -33,7 +34,7 @@ class TermController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -54,7 +55,7 @@ class TermController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Term  $term
+     * @param  \App\Term $term
      * @return \Illuminate\Http\Response
      */
     public function show(Term $term)
@@ -65,7 +66,7 @@ class TermController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Term  $term
+     * @param  \App\Term $term
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -78,35 +79,32 @@ class TermController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Term  $term
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Term $term
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Term $term, Request $request)
     {
-        request()->validate([
-            'image' => 'nullable',
-            'title' => 'required',
-            'number' => 'required',
-            'description' => 'required',
-            'semester' => 'required'
-        ]);
-        $term = Term::findOrFail($id);
-        $term->update(request()->all());
+        $term->image = request('image');
+        $term->title = request('title');
+        $term->number = request('number');
+        $term->description = request('description');
+        $term->semester = request('semester');
 
-        return redirect(route('terms.index'));
+        $term->save();
+
+        return redirect('/terms');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Term  $term
+     * @param  \App\Term $term
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $term = Term::find($id);
-        $term->delete();
+        Term::findOrFail($id)->delete();
 
         return redirect('/terms');
     }

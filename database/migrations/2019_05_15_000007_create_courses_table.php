@@ -29,13 +29,13 @@ class CreateCoursesTable extends Migration
             $table->unsignedInteger('term_id')->nullable();
             $table->timestamps();
 
-            $table->index(["term_id"], 'fk_coruses_terms_idx');
+            $table->index(["term_id"], 'fk_courses_terms_idx');
 
 
-            $table->foreign('term_id', 'fk_coruses_terms_idx')
+            $table->foreign('term_id', 'fk_courses_terms_idx')
                 ->references('id')->on('terms')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

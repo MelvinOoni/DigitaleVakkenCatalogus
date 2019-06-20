@@ -14,7 +14,8 @@
                     <h4>Overzicht van projectvoorbeelden</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
-                    <a class="btn btn-success" href={{ url('/products/create') }}><i class="fa fa-plus"></i> New projectvoorbeeld</a>
+                    <a class="btn btn-success" href={{ url('/products/create') }}><i class="fa fa-plus"></i> Nieuw
+                        projectvoorbeeld toevoegen</a>
                 </div>
             </div>
         </div>
@@ -26,7 +27,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Projectvoorbeeld</th>
-                    <th scope="col"></th>
+                    <th scope="col">Acties</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -34,21 +35,21 @@
                 {{-- Content of Table --}}
                 @foreach($products as $product)
                     <tr>
-                    <td>{{$product->id}}</td>
-                    <td>{{$product->name}}</td>
-                    <td><a class="btn btn-warning btn-sm text-white"
-                           href='/products/{{$product->id}}/edit'>Bewerk</a></td>
-                    <td>
-                        <form method="POST" action="/products/{{$product->id}}">
-                            @method('DELETE')
-                            @CSRF
-                            <button class="btn btn-danger btn-sm"
-                                    onclick="if (!confirm('Weet je zeker dat je dit wilt verwijderen?')) { return false }">
-                                Verwijder
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+                        <td>{{$product->id}}</td>
+                        <td>{{$product->name}}</td>
+                        <td><a class="btn btn-warning btn-sm text-white"
+                               href="{{ url('/products/' . $product->id . '/edit') }}">Bewerk</a></td>
+                        <td>
+                            <form method="POST" action="{{ url("/products/" . $product->id) }}">
+                                @method('DELETE')
+                                @CSRF
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="if (!confirm('Weet je zeker dat je dit wilt verwijderen?')) { return false }">
+                                    Verwijder
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

@@ -17,20 +17,16 @@
                     <h4>Details van het vak {{$course->title}}</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
-                    <a class="btn btn-primary" href="/courses">Ga terug</a>
+                    <a class="btn btn-primary" href={{ url('/courses') }}>Ga terug</a>
                 </div>
             </div>
         </div>
 
         <div class="card-body text-left">
-            <strong>Vak:</strong><br>
-            {{$course->title}}<br>
-            <strong>Startweek:</strong> <br>2
-            {{$course->start_week}}<br>
-            <strong>Eindweek:</strong> 
-            {{$course->end_week}}<br>
-            <strong>Blok:</strong> 
-            {{$course->term_id}}<br>
+            <strong>Vak:</strong> {{$course->title}}<br>
+            <strong>Blok:</strong> {{$course->term_id}}<br>
+            <strong>Startweek:</strong> {{$course->start_week}}<br>
+            <strong>Eindweek:</strong> {{$course->end_week}}<br>
         </div>
     </div>
 

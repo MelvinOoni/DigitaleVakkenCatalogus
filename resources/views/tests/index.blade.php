@@ -17,7 +17,8 @@
                     <h4>Overzicht van de toetsen</h4>
                 </div>
                 <div class="col-6 text-right mt-1">
-                    <a class="btn btn-success" href={{ url('tests/create') }}><i class="fa fa-plus"></i> Toets toevoegen</a>
+                    <a class="btn btn-success" href={{ url('tests/create') }}><i class="fa fa-plus"></i> Nieuwe toets
+                        toevoegen</a>
                 </div>
             </div>
         </div>
@@ -30,8 +31,6 @@
                 <tr>
                     <th scope="col">Vak</th>
                     <th scope="col">Type toets</th>
-                    <th scope="col">Poging</th>
-                    <th scope="col">Week</th>
                     <th scope="col"></th>
                     <th scope="col">Acties</th>
                     <th scope="col"></th>
@@ -39,28 +38,22 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    {{-- Coursename --}}
-                    @foreach($courses as $courseRow)
-                        <td>{{ $courseRow->title }}</td>
-                    @endforeach
+                @foreach($tests as $test)
 
-                    {{-- Test type --}}
-                    @foreach($testTypes as $typeRow)
-                        <td>{{ $typeRow->name }}</td>
-                    @endforeach
+                    <tr>
+                        {{-- Name of course --}}
+                        <td>{{ $test->course->title }}</td>
 
-                    {{-- Attempt and week of test --}}
-                    @foreach ($tests as $testRow)
-                        <td>{{ $testRow->first()->attempt }}</td>
-                        <td>{{ $testRow->first()->week }}</td>
-                        {{--<td>{{ $courses->first()->title }}</td>--}}
+                        {{-- Type of test--}}
+                        <td>{{ $test->type }}</td>
+
+                        {{-- Buttons for actions --}}
                         <td><a class="btn btn-info btn-sm text-white"
-                               href={{ url('tests/') }}>Details</a></td>
+                               href='tests/{{$test->id}}'>Details</a></td>
                         <td><a class="btn btn-warning btn-sm text-white"
-                               href="{{ url('...') }}">Update</a></td>
+                               href='tests/{{$test->id}}/edit'>Bewerken</a></td>
                         <td>
-                            <form method="POST" action="{{ url('tests/' . $testRow->id) }}">
+                            <form method="POST" action="{{ url('tests/' . $test->id) }}">
                                 @method('DELETE')
                                 @CSRF
                                 <button class="btn btn-danger btn-sm"
@@ -69,8 +62,9 @@
                                 </button>
                             </form>
                         </td>
-                    @endforeach
-                </tr>
+                    </tr>
+                @endforeach
+
                 </tbody>
             </table>
         </div>
