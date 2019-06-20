@@ -23,22 +23,43 @@
             background-color:white;
             font-family: "Arial", sans-serif;
         }
+        p {
+            font-family: "Arial", sans-serif;
+        }
     </style>
     <body class="col-12">
         <div class="main bg-white">
             <div>
                 <img src="./images/hz.png" height="50px" style="margin-top:3px;margin-left:auto;">
-                <h1 class="text-center mt-3">Vakken overzicht</h1>
+                <h1 class="text-center mt-3" style="color:#4682B4;">Vakken overzicht</h1>
             </div>
             <div class="bg-white">
+                <h2 class="mt-3">Courses</h2>
                 @foreach ($courses as $course)
-                    <div class="card w-100">
+                    <div class="list-group-item mt-4">
                         <div class="card-body">
                             <h3 class="card-title">{{$course->title}}</h3>
-                            <h4>Periode</h4>
+                            <hr>
+                            <h4>Periode:</h4>
                             <p>Week {{$course->start_week}} t/m {{$course->end_week}}</p>
                             <h4>Blok</h4>
                             <p>{{$course->term_id}}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="breakNow"></div>
+            <div class="bg-white">
+                <h2 class="mt-3">Blokken</h2>
+                @foreach ($terms as $term)
+                    <div class="list-group-item mt-4">
+                        <div class="card-body">
+                            <h3 class="card-title">{{$term->title}}</h3>
+                            <hr>
+                            <h4>Beschrijving:</h4>
+                            <p> {{$term->description}}</p>
+                            <h4>Semester:</h4>
+                            <p>{{$course->semester}}</p>
                         </div>
                     </div>
                 @endforeach

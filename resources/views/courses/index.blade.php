@@ -58,15 +58,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
-
-    {{-- PDF generate --}}
-    <form action="{!! url('/getPDF') !!}" method="PUT">
-        <a target="_blanc">
-            <button class="btn btn-primary" type="submit">
-                Genereer overzicht vakken
-            </button>
-        </a>
-    </form>    
+    </div>    
 </div>
 @endsection 

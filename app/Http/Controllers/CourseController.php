@@ -6,6 +6,9 @@ use App\Course;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use PDF;
+use App\Term;
+use PHPUnit\Util\Test;
+use App\Product;
 
 class CourseController extends Controller
 {
@@ -115,8 +118,10 @@ class CourseController extends Controller
 
     public function downloadPDF(Request $request){
         $courses = Course::all();
+        $terms = Term::all();
+        $products = Product::all();
 
-        $pdf = PDF::loadView('report', compact('courses'));
+        $pdf = PDF::loadView('report', compact('courses' ,'terms', 'products'));
         return $pdf->stream('rapport.pdf', array("Attachment" => 0));
         // return PDF::loadFile('report')->save('/public/uitdraaisel.pdf')->stream('uitdraaisel.pdf');
 
