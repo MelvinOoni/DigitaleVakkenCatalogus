@@ -24,7 +24,7 @@
 
         <div class="card-body text-left">
             <strong>Titel:</strong> {{ $term->title }}<br>
-            <strong>Bloknummer:</strong> {{ $term->number }}<br>
+            <strong>Blok:</strong> {{ $term->number }}<br>
             <strong>Semester:</strong> {{ $term->semester }}<br>
             <strong>Berschrijving:</strong> {{ $term->description }}<br><br>
             <img src="{{ $term->image }}" class="">

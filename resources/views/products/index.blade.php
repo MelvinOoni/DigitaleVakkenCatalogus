@@ -27,7 +27,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Projectvoorbeeld</th>
-                    <th scope="col"></th>
+                    <th scope="col">Acties</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -40,7 +40,7 @@
                         <td><a class="btn btn-warning btn-sm text-white"
                                href="{{ url('/products/' . $product->id . '/edit') }}">Bewerk</a></td>
                         <td>
-                            <form method="POST" action="/products/{{$product->id}}">
+                            <form method="POST" action="{{ url("/products/" . $product->id) }}">
                                 @method('DELETE')
                                 @CSRF
                                 <button class="btn btn-danger btn-sm"

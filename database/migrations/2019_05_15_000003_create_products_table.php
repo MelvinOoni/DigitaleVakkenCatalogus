@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 100)->nullable();
+            $table->timestamps();
         });
     }
 

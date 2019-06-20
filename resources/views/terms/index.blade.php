@@ -28,7 +28,7 @@
                 <thead>
                 {{-- Head of table --}}
                 <tr>
-                    <th scope="col">Bloknummer</th>
+                    <th scope="col">Blok</th>
                     <th scope="col">Titel</th>
                     <th scope="col"></th>
                     <th scope="col">Acties</th>

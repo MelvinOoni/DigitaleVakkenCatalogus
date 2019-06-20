@@ -27,27 +27,29 @@
                     <input type="text" class="form-control" id="title" name='title'
                            placeholder="Titel" required>
                 </div>
-                <div class="form-group">
-                    <label for="start_week">Startweek<span class="text-danger"> *</span></label>
-                    <input type="number" class="form-control" id="start_week" name='start_week'
-                           placeholder="Startweek" required>
-                </div>
-                <div class="form-group">
-                    <label for="end_week">Eindweek<span class="text-danger"> *</span></label>
-                    <input type="number" class="form-control" id="end_week" name='end_week'
-                           placeholder="Eindweek" required>
-                </div>
 
                 <div class="form-group">
                     <label for="term_id">Blok<span class="text-danger">*</span></label>
                     <select
                         class="form-control" id="term_id"
                         name='term_id' required>
-                        <option value="" disabled selected hidden>Open dit menu om een type vak te kiezen</option>
+                        <option value="" disabled selected hidden>Open dit menu om blok te selecteren</option>
                         @foreach ($terms as $row)
-                            <option value="{{ $row->id }}">{{ $row->number }}</option>
+                            <option value="{{ $row->id }}">Blok {{ $row->number }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="start_week">Startweek<span class="text-danger"> *</span></label>
+                    <input type="number" class="form-control" id="start_week" name='start_week'
+                           placeholder="Startweek" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="end_week">Eindweek<span class="text-danger"> *</span></label>
+                    <input type="number" class="form-control" id="end_week" name='end_week'
+                           placeholder="Eindweek" required>
                 </div>
 
                 {{-- Submit knop --}}
