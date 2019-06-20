@@ -29,14 +29,26 @@
                 @CSRF
 
                 <div class="form-group">
+                    <label for="course_id">Naam van het vak<span class="text-danger">*</span></label>
+                    <select
+                        class="form-control"  id="course_id"
+                        name='course_id' required>
+                        <option value="" disabled selected hidden>Open dit menu om een vak te kiezen</option>
+                        @foreach ($courses as $row)
+                            <option value="{{ $row->id }}">{{ $row->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="type">Type toets<span class="text-danger">*</span></label>
                     <select
                         class="form-control" id="type"
                         name='type' required>
                         <option value="" disabled selected hidden>Open dit menu om een type toets te kiezen</option>
-                        <option value="casus">Casus</option>
-                        <option value="mondeling">Mondeling</option>
-                        <option value="theorie">Theorie</option>
+                        <option value="Casus">Casus</option>
+                        <option value="Mondeling">Mondeling</option>
+                        <option value="Theorie">Theorie</option>
                     </select>
                 </div>
 
@@ -59,17 +71,6 @@
                            placeholder="Vul hier het weeknummer in" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="course_id">Naam van de course<span class="text-danger">*</span></label>
-                    <select
-                        class="form-control"  id="course_id"
-                        name='course_id' required>
-                        <option value="" disabled selected hidden>Open dit menu om een vak te kiezen</option>
-                        @foreach ($courses as $row)
-                            <option value="{{ $row->id }}">{{ $row->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
                 {{-- Submit knop --}}
                 <button type="submit" class="btn btn-block btn-success">Voeg deze toets toe</button>
             </form>

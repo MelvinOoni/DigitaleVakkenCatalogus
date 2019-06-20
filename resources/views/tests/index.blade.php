@@ -31,8 +31,6 @@
                 <tr>
                     <th scope="col">Vak</th>
                     <th scope="col">Type toets</th>
-                    <th scope="col">Aantal mogelijke pogingen</th>
-                    <th scope="col">Week</th>
                     <th scope="col"></th>
                     <th scope="col">Acties</th>
                     <th scope="col"></th>
@@ -49,17 +47,11 @@
                         {{-- Type of test--}}
                         <td>{{ $test->type }}</td>
 
-                        {{-- Attempt of test --}}
-                        <td>{{ $test->attempt }}</td>
-
-                        {{-- Week of test --}}
-                        <td>{{ $test->week }}</td>
-
                         {{-- Buttons for actions --}}
                         <td><a class="btn btn-info btn-sm text-white"
-                               href={{ url('tests/') }}>Details</a></td>
+                               href='tests/{{$test->id}}'>Details</a></td>
                         <td><a class="btn btn-warning btn-sm text-white"
-                               href="{{ url('...') }}">Update</a></td>
+                               href='tests/{{$test->id}}/edit'>Bewerken</a></td>
                         <td>
                             <form method="POST" action="{{ url('tests/' . $test->id) }}">
                                 @method('DELETE')

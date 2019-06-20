@@ -24,9 +24,9 @@
 
         <div class="card-body text-left">
             <strong>Vak:</strong> {{$course->title}}<br>
+            <strong>Blok:</strong> {{$course->term_id}}<br>
             <strong>Startweek:</strong> {{$course->start_week}}<br>
             <strong>Eindweek:</strong> {{$course->end_week}}<br>
-            <strong>Blok:</strong> {{$course->term_id}}<br>
         </div>
     </div>
 
