@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use PDF;
 
 class CourseController extends Controller
 {
@@ -110,4 +112,25 @@ class CourseController extends Controller
 
         return redirect('/courses');
     }
+
+    public function downloadPDF(Request $request){
+        $courses = Course::all();
+
+        $pdf = PDF::loadView('report', compact('courses'));
+        return $pdf->stream('rapport.pdf', array("Attachment" => 0));
+        // return PDF::loadFile('report')->save('/public/uitdraaisel.pdf')->stream('uitdraaisel.pdf');
+
+
+        // // dd($pdf);
+        // $pdf->stream('Rapport.pdf', array("Attachment" => 0));
+        // return $pdf->stream('Rapport.pdf', array("Attachment" => 0));
+    }
+
+    // public function testPDF($id){
+    //     $student = Student::find($id);
+    //     $studentComments = $student->comments;
+    //     $studentPlans = $student->plans;
+
+    //   	return view('report', compact('student', 'studentComments', 'studentPlans'));
+    // }
 }
