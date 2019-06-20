@@ -77,8 +77,9 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = Course::find($id);
+        $terms = Term::all();
 
-        return view('courses.edit', compact('course'));
+        return view('courses.edit', compact('course', 'terms'));
     }
 
     /**
