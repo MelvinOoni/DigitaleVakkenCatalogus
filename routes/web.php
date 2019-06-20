@@ -23,4 +23,4 @@ Route::resource('/tests', 'TestController');
 
 Route::resource('/products', 'ProductController');
 
-
+Route::get('/getPDF','CourseController@downloadPDF');
