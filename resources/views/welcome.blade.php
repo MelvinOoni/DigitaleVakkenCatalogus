@@ -20,6 +20,16 @@
 @stop
 
 @section('body')
+
+{{-- PDF generate --}}
+<form action="{!! url('/getPDF') !!}" method="PUT">
+    <a target="_blanc">
+        <button class="btn btn-primary" type="submit">
+            Genereer overzicht vakken
+        </button>
+    </a>
+</form>
+
     <h1>Realisatie:</h1>
     <div class="card mb-3">
         <img src="images/realisatie.png" class="card-img-top">
@@ -49,6 +59,7 @@
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
     </div>
+
 @endsection
 
 @push('js')
